@@ -32,3 +32,15 @@ Route::get('/test3', function (){
 Route::get('/test4', function (){
     return inertia('Test4');
 })->name('test4');
+
+Route::get('/debug', function () {
+    return response()->json([
+        'status' => 'Laravel is running!',
+        'env' => app()->environment(),
+        'debug' => config('app.debug'),
+        'url' => config('app.url'),
+        'php_version' => PHP_VERSION,
+        'laravel_version' => app()->version(),
+        'timestamp' => now()
+    ]);
+});

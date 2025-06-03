@@ -36,12 +36,18 @@ RUN npm ci
 # Copy all application files
 COPY . .
 
+# Create SQLite database
+RUN mkdir -p database && touch database/database.sqlite
+
 # Now run composer scripts (artisan file exists now)
 RUN composer run-script post-autoload-dump
 
 # Build assets
 ENV NODE_OPTIONS="--max-old-space-size=2048"
 RUN npm run build
+
+# Generate app key
+RUN cp .env.example .env && php artisan key:generate
 
 # Run Laravel commands
 RUN php artisan config:cache || true
@@ -55,6 +61,4 @@ RUN chmod -R 775 storage bootstrap/cache
 EXPOSE 8000
 
 # Start Laravel server
-# À la fin de votre Dockerfile
-WORKDIR /var/www
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000", "--env=production"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
