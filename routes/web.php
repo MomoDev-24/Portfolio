@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return inertia('Home');
 })->name('home');
+
 Route::get('about', function () {
     return inertia('About');
 })->name('about');
@@ -42,5 +43,12 @@ Route::get('/debug', function () {
         'php_version' => PHP_VERSION,
         'laravel_version' => app()->version(),
         'timestamp' => now()
+    ]);
+});
+
+
+Route::get('/test-inertia', function () {
+    return Inertia::render('TestInertia', [
+        'message' => 'Hello from Inertia!'
     ]);
 });
