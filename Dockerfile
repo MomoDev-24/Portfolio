@@ -23,18 +23,23 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
-# Copy composer files first
+# Copy composer files
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader
 
-# Copy package files and install ALL dependencies (including devDependencies)
+# Install composer dependencies WITHOUT scripts
+RUN composer install --no-dev --optimize-autoloader --no-scripts --no-plugins
+
+# Copy package.json
 COPY package*.json ./
 RUN npm ci
 
-# Copy application code
+# Copy all application files
 COPY . .
 
-# Set Node.js memory limit and build
+# Now run composer scripts (artisan file exists now)
+RUN composer run-script post-autoload-dump
+
+# Build assets
 ENV NODE_OPTIONS="--max-old-space-size=2048"
 RUN npm run build
 
