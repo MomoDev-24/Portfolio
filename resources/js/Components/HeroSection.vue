@@ -1,8 +1,8 @@
 <template>
-    <section id="hero" class="relative h-screen overflow-hidden">
+    <section id="hero" class="relative min-h-screen overflow-hidden pt-2 md:pt-3 flex flex-col justify-center">
         <div class="background-animation" ref="bgAnim"></div>
-        <div class="relative z-10 flex items-center justify-center h-full text-center text-white px-6">
-            <div class="max-w-5xl">
+        <div class="relative z-10 flex items-center justify-center h-full text-center text-white px-6 py-14  ">
+            <div class="max-w-5xl ">
                 <!-- Salutation animée -->
                 <div class="mb-6 animate-fade-in">
           <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Titre principal avec effet de frappe -->
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-delay">
+                <h1 class="text-2xl md:text-4xl  font-bold mb-6 animate-fade-in-delay">
                     <span class="block mb-2">{{ personalInfo.title.line1 }}</span>
                     <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300">
             {{ personalInfo.title.line2 }}
@@ -19,7 +19,7 @@
                 </h1>
 
                 <!-- Sous-titre avec rotation des mots -->
-                <div class="text-xl md:text-2xl lg:text-3xl mb-8 opacity-90 animate-fade-in-delay-2">
+                <div class="text-lg  mb-8 opacity-90 animate-fade-in-delay-2">
                     <span>{{ personalInfo.subtitle.prefix }}</span>
                     <span class="font-semibold text-blue-300 rotating-text" ref="rotatingText">
             {{ currentSkill }}
@@ -27,7 +27,7 @@
                 </div>
 
                 <!-- Description -->
-                <p class="text-lg md:text-xl mb-10 opacity-80 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-3">
+                <p class="text-sm md:text-base mb-5 opacity-80 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-3">
                     {{ personalInfo.description }}
                 </p>
 
@@ -70,7 +70,7 @@
                 </div>
 
                 <!-- Réseaux sociaux -->
-                <div class="flex justify-center space-x-6 mt-12 animate-fade-in-delay-6">
+                <div class="flex justify-center space-x-6 mt-9 animate-fade-in-delay-6">
                     <a
                         v-for="social in socialLinks"
                         :key="social.name"
@@ -86,14 +86,15 @@
                     </a>
                 </div>
 
-                <!-- Indicateur de scroll -->
-                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                    <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                        <div class="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-                    </div>
-                    <p class="text-xs mt-2 opacity-60">Scroll</p>
-                </div>
             </div>
+        </div>
+
+        <!-- Indicateur de scroll -->
+        <div class="absolute bottom-8  left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center">
+            <div class="w-5 h-10 border-2 border-white/30 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+            </div>
+            <p class="text-xs mt-2 text-white/50 opacity-60">Scroll</p>
         </div>
     </section>
 </template>

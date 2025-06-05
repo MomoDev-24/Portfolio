@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <svg class="h-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="120" height="100" viewBox="0 0 1200 628" xml:space="preserve">
+    <svg class="h-12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="120" height="100" viewBox="0 0 1200 628" xml:space="preserve">
         <desc>Created with Fabric.js 5.2.4</desc>
         <defs>
         </defs>

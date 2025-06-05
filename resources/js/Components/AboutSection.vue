@@ -193,27 +193,6 @@
                 </div>
             </div>
 
-            <!-- Valeurs personnelles -->
-<!--            <div class="max-w-6xl mx-auto">-->
-<!--                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 text-center mb-8 lg:mb-12">Mes Valeurs</h3>-->
-<!--                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">-->
-<!--                    <div-->
-<!--                        v-for="(value, index) in values"-->
-<!--                        :key="value.title"-->
-<!--                        class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow value-card"-->
-<!--                        ref="valueCards"-->
-<!--                        :data-index="index"-->
-<!--                    >-->
-<!--                        <div :class="`w-12 h-12 lg:w-16 lg:h-16 ${value.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`">-->
-<!--                            <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">-->
-<!--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="value.icon"></path>-->
-<!--                            </svg>-->
-<!--                        </div>-->
-<!--                        <h4 class="text-lg lg:text-xl font-semibold mb-2 text-gray-800">{{ value.title }}</h4>-->
-<!--                        <p class="text-sm lg:text-base text-gray-600">{{ value.description }}</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </section>
 </template>
@@ -226,7 +205,7 @@ const personalInfo = ref({
     name: 'Moïse MAHMA',
     title: 'Développeur web et mobile',
     description: 'Passionné par la création d\'expériences numériques innovantes, je combine créativité et expertise technique pour donner vie à des projets web exceptionnels. Mon approche centrée sur l\'utilisateur et ma curiosité constante me poussent à explorer les dernières technologies.',
-    skills: ['Vue.js', 'React', 'Node.js', 'Python', 'UI/UX Design', 'TypeScript', 'MongoDB', 'PostgreSQL']
+    skills: ['Flutter', 'Laravel', 'Vue.js', 'Node.js', 'Python', 'Dart', 'PHP', 'MongoDB', 'PostgreSQL']
 });
 
 // Calcul des initiales
@@ -241,18 +220,18 @@ const initials = computed(() => {
 // Timeline du parcours
 const timeline = ref([
     {
-        year: '2019',
-        title: 'Reconversion',
-        period: '2019',
-        description: 'Décision de me reconvertir dans le développement web. Début de l\'apprentissage autodidacte des technologies web modernes.',
+        year: '2022',
+        title: 'Licence pro',
+        period: '2019-2022',
+        description: 'Obtention de ma Licence professionnelle à l\'INSTI de Lokossa',
         achievements: [
-            'Premiers projets personnels',
-            'Participation à des hackathons',
-            'Création d\'un portfolio'
+            'Projets de classes',
+            'Stage en entreprise',
+            'Projet de fin d\'études'
         ],
-        technologies: ['HTML', 'CSS', 'JavaScript'],
+        technologies: ['Flutter', 'Arduino', 'PHP', 'Java', 'Sql',],
         color: 'bg-red-500',
-        icon: 'M13 10V3L4 14h7v7l9-11h-7z'
+        icon: "M12 2L2 7l10 5 10-5-10-5zm0 5v13m0 0c-4 0-6-1-8-3m8 3c4 0 6-1 8-3"
     },
     {
         year: '2020',

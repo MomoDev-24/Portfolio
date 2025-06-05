@@ -1,5 +1,5 @@
 <template>
-    <section id="services" class="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white relative overflow-hidden">
+    <section id="skills" class="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white relative overflow-hidden">
         <!-- Particules d'arrière-plan -->
         <div class="absolute inset-0 overflow-hidden">
             <div

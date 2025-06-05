@@ -1,23 +1,26 @@
 <template>
     <nav class="fixed top-0  left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
-        <div class="container mx-auto px-6 py-0.5">
+        <div class="container mx-auto px-1 md:px-6 py-0.5 ">
             <div class="flex items-center justify-between">
                 <app-logo/>
-                <div class="hidden md:flex space-x-6 text-xl">
+                <div class="hidden md:flex space-x-6 text-base">
                     <a href="#hero" @click="scrollTo('hero')" class="text-white hover:text-blue-200 transition-colors cursor-pointer">
                         Accueil
                     </a>
                     <a href="#about" @click="scrollTo('about')" class="text-white hover:text-blue-200 transition-colors cursor-pointer">
                         À propos
                     </a>
-                    <a href="#skills" @click="scrollTo('services')" class="text-white hover:text-blue-200 transition-colors cursor-pointer">
+                    <a href="#skills" @click="scrollTo('skills')" class="text-white hover:text-blue-200 transition-colors cursor-pointer">
                         Compétences
+                    </a>
+                    <a href="#projects" @click="scrollTo('projects')" class="text-white hover:text-blue-200 transition-colors cursor-pointer">
+                        Projets
                     </a>
                     <a href="#contact" @click="scrollTo('contact')" class="text-white hover:text-blue-200 transition-colors cursor-pointer">
                         Contact
                     </a>
                 </div>
-                <button class="md:hidden text-white" @click="toggleMobileMenu">
+                <button class="md:hidden text-white mr-2" @click="toggleMobileMenu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -33,8 +36,11 @@
                     <a href="#about" @click="scrollToAndClose('about')" class="text-white hover:text-blue-200 transition-colors py-2">
                         À propos
                     </a>
-                    <a href="#services" @click="scrollToAndClose('services')" class="text-white hover:text-blue-200 transition-colors py-2">
-                        Services
+                    <a href="#skills" @click="scrollToAndClose('services')" class="text-white hover:text-blue-200 transition-colors py-2">
+                        Compétences
+                    </a>
+                    <a href="#projects" @click="scrollToAndClose('services')" class="text-white hover:text-blue-200 transition-colors py-2">
+                        Projets
                     </a>
                     <a href="#contact" @click="scrollToAndClose('contact')" class="text-white hover:text-blue-200 transition-colors py-2">
                         Contact
