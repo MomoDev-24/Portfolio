@@ -14,7 +14,7 @@
                 class="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-[#0D0D0D] text-[#F3F2EF]"
             >
                 <div class="mx-auto flex w-full max-w-page items-center justify-between px-6 py-2">
-                    <AppLogo class="h-12 w-auto" />
+                    <span class="font-script text-[34px] font-bold leading-none">Momodev<span class="text-[#FF6A3D]">.</span></span>
                     <button
                         ref="closeButton"
                         type="button"
@@ -53,7 +53,6 @@
 
 <script setup>
 import { ref, watch, nextTick } from 'vue';
-import AppLogo from './AppLogo.vue';
 import { menuLinks } from '../data/navigation';
 import { profile } from '../data/portfolio';
 import { useDialog } from '../Composables/useDialog';

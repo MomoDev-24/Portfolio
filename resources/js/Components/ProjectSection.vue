@@ -1,6 +1,6 @@
 <template>
     <section id="projects" class="border-t border-line">
-        <div class="mx-auto flex max-w-page flex-col gap-12 px-6 py-[110px]">
+        <div class="mx-auto flex max-w-page flex-col gap-10 px-6 py-16 md:gap-12 md:py-[110px]">
             <div class="flex flex-wrap items-end justify-between gap-6">
                 <div class="flex flex-col gap-5">
                     <span class="lbl">{{ t('projects.label') }}</span>
@@ -22,7 +22,7 @@
                     class="card-zoom flex scroll-mt-24 flex-col gap-3 bg-surface p-2.5 text-ink hover:text-ink lg:[&:nth-child(3n+2)]:mt-20"
                     @click.prevent="$emit('open', project.id)"
                 >
-                    <div class="h-[340px] overflow-hidden">
+                    <div class="h-[280px] overflow-hidden md:h-[340px]">
                         <div class="flex h-full items-center justify-center p-5" :class="project.bg">
                             <img
                                 v-if="project.image"
@@ -45,7 +45,7 @@
                 </a>
             </div>
 
-            <div class="mt-6 flex flex-col">
+            <div class="flex flex-col md:mt-6">
                 <h3 class="mb-3 text-xs font-bold uppercase tracking-[.06em] text-muted">{{ t('projects.others') }}</h3>
                 <a
                     v-for="project in otherProjects"
@@ -53,10 +53,10 @@
                     :key="project.id"
                     :href="`#${project.id}`"
                     data-reveal="0"
-                    class="group flex scroll-mt-24 flex-wrap items-center gap-x-8 gap-y-2 border-t border-line py-[22px] text-ink last:border-b hover:text-ink"
+                    class="group flex scroll-mt-24 flex-wrap items-center gap-x-8 gap-y-1.5 border-t border-line py-5 md:gap-y-2 md:py-[22px] text-ink last:border-b hover:text-ink"
                     @click.prevent="$emit('open', project.id)"
                 >
-                    <span class="flex-[0_0_280px] font-display text-[22px] font-extrabold uppercase transition-colors duration-300 group-hover:text-accent">
+                    <span class="w-full font-display text-xl md:w-auto md:flex-[0_0_280px] md:text-[22px] font-extrabold uppercase transition-colors duration-300 group-hover:text-accent">
                         {{ tr(project.name) }}
                     </span>
                     <span class="flex-[1_1_360px] text-sm text-muted">{{ tr(project.summary) }}</span>

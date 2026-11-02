@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-inv text-inv-text">
-        <div class="mx-auto flex max-w-page flex-col gap-11 px-6 pt-[72px]">
-            <div data-reveal="0" class="flex flex-wrap items-end justify-between gap-6 border-b border-inv-line pb-10">
+        <div class="mx-auto flex max-w-page flex-col gap-8 px-6 pt-12 md:gap-11 md:pt-[72px]">
+            <div data-reveal="0" class="flex flex-wrap items-end justify-between gap-6 border-b border-inv-line pb-8 md:pb-10">
                 <div class="flex flex-col gap-2.5">
                     <span class="font-script text-[46px] font-bold leading-none">Momodev<span class="text-accent">.</span></span>
                     <p class="m-0 max-w-[400px] text-[15px] text-inv-muted">{{ t('footer.pitch') }}</p>
@@ -15,7 +15,7 @@
                 </a>
             </div>
 
-            <div data-reveal="1" class="flex flex-wrap gap-x-24 gap-y-8 text-sm">
+            <div data-reveal="1" class="grid grid-cols-2 gap-x-8 gap-y-8 text-sm sm:flex sm:flex-wrap sm:gap-x-24">
                 <div class="footer-col">
                     <span class="footer-title">{{ t('footer.nav') }}</span>
                     <a v-for="link in navLinks" :key="link.href" :href="link.href">{{ t(link.key) }}</a>

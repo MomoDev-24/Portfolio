@@ -1,6 +1,6 @@
 <template>
     <section id="parcours" class="bg-inv text-inv-text">
-        <div class="mx-auto flex max-w-page flex-wrap gap-x-20 gap-y-12 px-6 py-[110px]">
+        <div class="mx-auto flex max-w-page flex-wrap gap-x-20 gap-y-8 px-6 py-16 md:gap-y-12 md:py-[110px]">
             <div class="flex flex-[1_1_300px] flex-col gap-5">
                 <span class="lbl !bg-inv-line !text-inv-text">{{ t('experience.label') }}</span>
                 <h2 class="disp text-[clamp(42px,5vw,72px)]">
@@ -13,7 +13,7 @@
                     v-for="(exp, i) in experiences"
                     :key="exp.place"
                     :data-reveal="i % 2"
-                    class="flex flex-col gap-2.5 bg-inv p-7"
+                    class="flex flex-col gap-2.5 bg-inv p-5 md:p-7"
                 >
                     <span class="text-xs font-bold uppercase" :class="exp.current ? 'text-accent' : 'text-inv-muted'">{{ tr(exp.period) }}</span>
                     <h3 class="m-0 font-display text-xl font-bold uppercase">{{ tr(exp.title) }}</h3>

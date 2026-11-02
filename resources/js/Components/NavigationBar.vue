@@ -1,8 +1,8 @@
 <template>
     <header class="border-b border-white/20">
         <nav :aria-label="t('nav.main')" class="mx-auto flex max-w-page flex-wrap items-center justify-between gap-3 px-6 py-2">
-            <a href="#hero" class="text-white hover:text-white" :aria-label="t('nav.backHome')">
-                <AppLogo class="h-12 w-auto" />
+            <a href="#hero" class="py-2 font-script text-[34px] font-bold leading-none text-white hover:text-white" :aria-label="t('nav.backHome')">
+                Momodev<span class="text-hero-ink">.</span>
             </a>
             <div class="flex flex-wrap items-center gap-1 text-sm font-medium">
                 <a
@@ -31,7 +31,6 @@
 </template>
 
 <script setup>
-import AppLogo from './AppLogo.vue';
 import ThemeToggle from './ThemeToggle.vue';
 import LanguageToggle from './LanguageToggle.vue';
 import { navLinks as links } from '../data/navigation';

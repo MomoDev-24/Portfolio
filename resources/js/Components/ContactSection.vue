@@ -1,18 +1,18 @@
 <template>
     <section id="contact">
-        <div class="mx-auto flex max-w-page flex-col gap-12 px-6 pb-20 pt-[110px]">
+        <div class="mx-auto flex max-w-page flex-col gap-8 px-6 pb-12 pt-16 md:gap-12 md:pb-20 md:pt-[110px]">
             <div class="flex flex-wrap items-end justify-between gap-6">
-                <h2 class="disp text-[clamp(56px,10vw,150px)]">
+                <h2 class="disp text-[clamp(44px,10vw,150px)]">
                     <span data-reveal="0" class="block">{{ t('contact.title1') }}</span>
                     <span data-reveal="1" class="block text-grey">{{ t('contact.title2') }}</span>
                 </h2>
                 <span class="text-[13px] font-semibold">{{ t('contact.reply') }}</span>
             </div>
 
-            <div class="grid-lines flex flex-wrap items-center gap-10 bg-hero p-[clamp(20px,4vw,48px)]">
+            <div class="grid-lines flex flex-wrap items-center gap-8 bg-hero p-4 sm:p-[clamp(20px,4vw,48px)] md:gap-10">
                 <form
                     data-reveal="0"
-                    class="flex max-w-[420px] flex-[1_1_340px] flex-col gap-3.5 bg-surface p-6 text-ink"
+                    class="flex min-w-0 max-w-[420px] flex-[1_1_300px] flex-col gap-3.5 bg-surface p-5 text-ink md:p-6"
                     @submit.prevent="submitForm"
                 >
                     <span class="font-display text-lg font-extrabold uppercase">{{ t('contact.formTitle') }}</span>
@@ -40,7 +40,7 @@
                     </p>
                 </form>
 
-                <div class="flex flex-[1_1_340px] flex-col gap-5 text-white">
+                <div class="flex min-w-0 flex-[1_1_300px] flex-col gap-5 text-white">
                     <p class="disp text-[clamp(36px,5vw,68px)]">
                         {{ t('contact.idea') }}
                         <span class="block text-hero-ink">{{ t('contact.build') }}</span>
