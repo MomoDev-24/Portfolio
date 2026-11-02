@@ -8,7 +8,7 @@ const skillImages = import.meta.glob('../Assets/skills/*.webp', { eager: true, i
 const projectImg = (name) => projectImages[`../Assets/projects/${name}.webp`];
 const skillImg = (name) => skillImages[`../Assets/skills/${name}.webp`];
 
-const STATUS_TBD = { fr: '[Statut à préciser]', en: '[Status to confirm]' };
+const STATUS_INTERNAL = { fr: 'Test interne', en: 'Internal testing' };
 const ON_PLAY = { fr: 'Publiée sur Google Play', en: 'Live on Google Play' };
 const FLUTTER_APP = { fr: 'Application mobile Flutter', en: 'Flutter mobile app' };
 const MOBILE_APP = { fr: 'Application mobile', en: 'Mobile app' };
@@ -153,7 +153,7 @@ export const projects = [
     {
         id: 'ticketnid', name: 'TicketNID', featured: true,
         cat: { fr: 'Billetterie', en: 'Ticketing' },
-        type: FLUTTER_APP, role: FULL_DEV, status: STATUS_TBD,
+        type: FLUTTER_APP, role: FULL_DEV, status: STATUS_INTERNAL,
         summary: {
             fr: "Billetterie événementielle : achat, espace organisateur, scan QR des tickets à l'entrée et vérification d'identité.",
             en: 'Event ticketing: purchase, organizer space, QR ticket scanning at the entrance and identity verification.',
@@ -196,7 +196,7 @@ export const projects = [
     {
         id: 'isbaq', name: 'ISBAQ', featured: true,
         cat: 'Fintech',
-        type: FLUTTER_APP, role: FULL_DEV, status: STATUS_TBD,
+        type: FLUTTER_APP, role: FULL_DEV, status: STATUS_INTERNAL,
         summary: {
             fr: 'Services financiers : authentification, KYC, gestion des cartes, PIN, biométrie, récompenses et statistiques.',
             en: 'Financial services: authentication, KYC, card management, PIN, biometrics, rewards and statistics.',
@@ -228,7 +228,7 @@ export const projects = [
     {
         id: 'lokaplux', name: 'Lokaplux', featured: true,
         cat: { fr: 'Immobilier', en: 'Real estate' },
-        type: FLUTTER_APP, role: FULL_DEV, status: STATUS_TBD,
+        type: FLUTTER_APP, role: FULL_DEV, status: STATUS_INTERNAL,
         summary: {
             fr: 'Visites, demandes de location, contrats, échéances et paiements, sur une architecture modulaire feature-first.',
             en: 'Viewings, rental requests, contracts, due dates and payments, on a modular feature-first architecture.',
@@ -406,7 +406,7 @@ export const projects = [
         listLabel: { fr: 'Mobile · Couture', en: 'Mobile · Tailoring' },
         type: FLUTTER_APP,
         role: { fr: 'Conception et développement des interfaces', en: 'UI design and development' },
-        status: STATUS_TBD,
+        status: STATUS_INTERNAL,
         summary: {
             fr: 'Plateforme pour couturiers, conçue from scratch : mensurations, modèles, catalogue, clients et mise en avant.',
             en: 'Platform for tailors, built from scratch: measurements, designs, catalog, clients and promotion.',
@@ -481,7 +481,7 @@ export const projects = [
         id: 'aivoka', name: 'Aivoka',
         cat: { fr: 'Juridique', en: 'Legal' },
         listLabel: { fr: 'Mobile · Juridique', en: 'Mobile · Legal' },
-        type: MOBILE_APP, role: DESIGN_DEV, status: STATUS_TBD,
+        type: MOBILE_APP, role: DESIGN_DEV, status: STATUS_INTERNAL,
         summary: {
             fr: 'Application juridique : textes de lois en vigueur au Bénin et assistant conversationnel pour des réponses personnalisées.',
             en: 'Legal app: laws in force in Benin and a conversational assistant for personalized answers.',
