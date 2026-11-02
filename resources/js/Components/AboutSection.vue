@@ -1,12 +1,21 @@
 <template>
     <section id="about">
         <div class="mx-auto flex max-w-page flex-col gap-14 px-6 py-[110px]">
-            <div class="flex flex-col gap-5">
-                <span class="lbl">À propos</span>
-                <h2 class="disp text-[clamp(42px,6vw,84px)]">
-                    <span data-reveal="0" class="block">Mon impact</span>
-                    <span data-reveal="1" class="block">à travers <span class="text-grey">le code</span></span>
-                </h2>
+            <div class="flex flex-wrap items-start justify-between gap-8">
+                <div class="flex flex-col gap-5">
+                    <span class="lbl">À propos</span>
+                    <h2 class="disp text-[clamp(42px,6vw,84px)]">
+                        <span data-reveal="0" class="block">Mon impact</span>
+                        <span data-reveal="1" class="block">à travers <span class="text-grey">le code</span></span>
+                    </h2>
+                </div>
+                <img
+                    :src="work"
+                    alt="Éditeur de code Flutter et application mobile en cours de développement"
+                    data-reveal="2"
+                    class="block h-[200px] w-[200px] object-cover"
+                    loading="lazy"
+                >
             </div>
 
             <div class="flex flex-wrap items-start gap-10">
@@ -51,5 +60,6 @@
 
 <script setup>
 import photo from '../Assets/photo.jpg';
+import work from '../Assets/work.webp';
 import { profile, stats } from '../data/portfolio';
 </script>
