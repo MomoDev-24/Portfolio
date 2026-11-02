@@ -1,3 +1,115 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --bg: #F3F2EF;
+        --surface: #FFFFFF;
+        --chip: #E8E6E1;
+        --ink: #111111;
+        --grey: #8A8A85;
+        --muted: #5C5C58;
+        --line: #DCDAD4;
+        --accent: #E04A1F;
+        --hero: #E04A1F;
+        --hero-ink: #1C0A03;
+        --inv-bg: #111111;
+        --inv-text: #F3F2EF;
+        --inv-muted: #A6A6A1;
+        --inv-line: #2A2A2A;
+        --ph1: #F2C9B8;
+        --ph2: #1E1E1E;
+        --ph3: #D9D6CF;
+        color-scheme: light;
+    }
+
+    .dark {
+        --bg: #0F0F0F;
+        --surface: #181818;
+        --chip: #242424;
+        --ink: #F1F0EC;
+        --grey: #7D7D78;
+        --muted: #A9A9A4;
+        --line: #2A2A2A;
+        --accent: #FF6A3D;
+        --hero: #C9431C;
+        --hero-ink: #FFF1EA;
+        --inv-bg: #F1F0EC;
+        --inv-text: #111111;
+        --inv-muted: #55554F;
+        --inv-line: #D6D4CE;
+        --ph1: #3A2016;
+        --ph2: #262626;
+        --ph3: #1F1F1F;
+        color-scheme: dark;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-bg text-ink font-sans antialiased;
+        transition: background-color .3s ease, color .3s ease;
+    }
+
+    a:hover {
+        color: var(--accent);
+    }
+}
+
+@layer components {
+    /* Grands titres éditoriaux en capitales */
+    .disp {
+        @apply font-display font-extrabold uppercase m-0;
+        letter-spacing: -0.045em;
+        line-height: .95;
+    }
+
+    /* Petite étiquette de section avec pastille orange */
+    .lbl {
+        @apply inline-flex items-center gap-2 self-start rounded bg-chip px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[.06em];
+    }
+
+    .lbl::before {
+        content: "";
+        @apply h-1.5 w-1.5 rounded-full bg-accent;
+    }
+
+    .grid-lines {
+        background-image:
+            linear-gradient(to right, rgba(255, 255, 255, .13) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, .13) 1px, transparent 1px);
+        background-size: 25% 33.33%;
+    }
+
+    .marquee {
+        @apply flex w-max;
+        animation: marquee 30s linear infinite;
+    }
+
+    .card-zoom img {
+        transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .card-zoom:hover img {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .marquee {
+        animation: none;
+    }
+}

@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "build:static": "vite build --config vite.static.config.js",
+        "preview:static": "vite preview --config vite.static.config.js --port 4173"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",
