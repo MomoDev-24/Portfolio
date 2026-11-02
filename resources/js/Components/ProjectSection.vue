@@ -60,7 +60,10 @@
                         {{ tr(project.name) }}
                     </span>
                     <span class="flex-[1_1_360px] text-sm text-muted">{{ tr(project.summary) }}</span>
-                    <span class="text-xs font-semibold uppercase">/{{ tr(project.listLabel) }} ↗</span>
+                    <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase">
+                        /{{ tr(project.listLabel) }}
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"><path d="M7 17L17 7M8 7h9v9" /></svg>
+                    </span>
                 </a>
             </div>
         </div>

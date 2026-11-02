@@ -22,7 +22,17 @@
                 </div>
                 <div class="footer-col">
                     <span class="footer-title">{{ t('footer.socials') }}</span>
-                    <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" rel="noopener noreferrer">{{ social.name }} ↗</a>
+                    <a
+                        v-for="social in socials"
+                        :key="social.name"
+                        :href="social.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2"
+                    >
+                        <SocialIcon :name="social.icon" class="h-4 w-4 shrink-0" />
+                        {{ social.name }}
+                    </a>
                 </div>
                 <div class="footer-col">
                     <span class="footer-title">{{ t('footer.contact') }}</span>
@@ -34,7 +44,7 @@
 
             <div class="flex flex-wrap justify-between gap-3 border-t border-inv-line pb-7 pt-5 text-xs text-inv-muted">
                 <span>© {{ year }} {{ profile.shortName }} — Momodev. {{ t('footer.rights') }}</span>
-                <span>{{ t('footer.made') }} {{ profile.firstName }}</span>
+                <span>{{ t('footer.made') }} Momodev</span>
             </div>
         </div>
     </footer>
@@ -43,6 +53,7 @@
 <script setup>
 import { profile, socials } from '../data/portfolio';
 import { navLinks } from '../data/navigation';
+import SocialIcon from './SocialIcon.vue';
 import { useI18n } from '../Composables/useI18n';
 
 const { t, tr } = useI18n();

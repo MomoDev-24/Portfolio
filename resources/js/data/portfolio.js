@@ -27,9 +27,9 @@ export const profile = {
 
 // À compléter avec les vraies adresses de profil
 export const socials = [
-    { name: 'GitHub', url: '#' },
-    { name: 'LinkedIn', url: '#' },
-    { name: 'WhatsApp', url: 'https://wa.me/2290150824348' },
+    { name: 'GitHub', icon: 'github', url: '#' },
+    { name: 'LinkedIn', icon: 'linkedin', url: '#' },
+    { name: 'WhatsApp', icon: 'whatsapp', url: 'https://wa.me/2290150824348' },
 ];
 
 export const stack = ['Flutter', 'Dart', 'Firebase', 'Vue.js', 'Nuxt.js', 'Next.js', 'TypeScript', 'Laravel', 'Node.js', 'Tailwind', 'Arduino'];
