@@ -10,12 +10,12 @@
                 v-if="project"
                 role="dialog"
                 aria-modal="true"
-                :aria-label="`Détail du projet ${project.name}`"
+                :aria-label="t('modal.detail', { name: tr(project.name) })"
                 class="fixed inset-0 z-[60] flex items-center justify-center p-4"
             >
                 <button
                     type="button"
-                    aria-label="Fermer le détail du projet"
+                    :aria-label="t('modal.closeDetail')"
                     class="absolute inset-0 cursor-pointer bg-[rgba(10,10,10,.72)]"
                     @click="$emit('close')"
                 />
@@ -25,18 +25,18 @@
                     class="modal-panel relative max-h-[calc(100vh-32px)] w-full max-w-[1040px] overflow-y-auto bg-bg text-ink shadow-[0_30px_80px_rgba(0,0,0,.35)]"
                 >
                     <div class="sticky top-0 z-[1] flex items-center justify-between gap-3 border-b border-line bg-bg py-2.5 pl-6 pr-4">
-                        <span class="lbl">{{ project.cat }}</span>
+                        <span class="lbl">{{ tr(project.cat) }}</span>
                         <div class="flex items-center gap-1">
-                            <button type="button" aria-label="Projet précédent" class="modal-btn" @click="go(-1)">
+                            <button type="button" :aria-label="t('modal.prev')" class="modal-btn" @click="go(-1)">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
                             </button>
-                            <button type="button" aria-label="Projet suivant" class="modal-btn" @click="go(1)">
+                            <button type="button" :aria-label="t('modal.next')" class="modal-btn" @click="go(1)">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                             </button>
                             <button
                                 ref="closeButton"
                                 type="button"
-                                aria-label="Fermer"
+                                :aria-label="t('modal.close')"
                                 class="ml-2 inline-flex h-11 w-11 items-center justify-center bg-ink text-bg"
                                 @click="$emit('close')"
                             >
@@ -47,22 +47,22 @@
 
                     <div class="flex flex-col gap-7 px-6 pb-9 pt-7">
                         <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
-                            <h2 class="disp text-[clamp(44px,7vw,96px)]">{{ project.name }}</h2>
+                            <h2 class="disp text-[clamp(44px,7vw,96px)]">{{ tr(project.name) }}</h2>
                             <span class="text-[13px] font-bold text-muted">{{ pad(index + 1) }} / {{ pad(projects.length) }}</span>
                         </div>
-                        <p class="m-0 max-w-[720px] text-lg leading-normal">{{ project.intro }}</p>
+                        <p class="m-0 max-w-[720px] text-lg leading-normal">{{ tr(project.intro) }}</p>
 
                         <div class="flex h-[clamp(240px,40vw,440px)] items-center justify-center p-6 text-center text-sm font-semibold" :class="project.bg">
-                            <img v-if="project.image" :src="project.image" :alt="project.alt" class="block max-h-full max-w-full object-contain">
-                            <span v-else class="text-muted">{{ project.placeholder }}</span>
+                            <img v-if="project.image" :src="project.image" :alt="tr(project.alt)" class="block max-h-full max-w-full object-contain">
+                            <span v-else class="text-muted">{{ tr(project.placeholder) }}</span>
                         </div>
 
                         <div v-if="project.shots.length" class="flex flex-col gap-3">
-                            <h3 class="modal-title">Écrans de l'application</h3>
+                            <h3 class="modal-title">{{ t('modal.screens') }}</h3>
                             <div class="flex gap-4 overflow-x-auto pb-2">
                                 <figure v-for="shot in project.shots" :key="shot.src" class="m-0 flex flex-[0_0_170px] flex-col gap-2">
-                                    <img :src="shot.src" :alt="shot.label" class="block h-auto w-full" loading="lazy">
-                                    <figcaption class="text-center text-xs text-muted">{{ shot.label }}</figcaption>
+                                    <img :src="shot.src" :alt="tr(shot.label)" class="block h-auto w-full" loading="lazy">
+                                    <figcaption class="text-center text-xs text-muted">{{ tr(shot.label) }}</figcaption>
                                 </figure>
                             </div>
                         </div>
@@ -70,24 +70,24 @@
                         <dl class="m-0 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-px border border-line bg-line">
                             <div v-for="info in infos" :key="info.label" class="flex flex-col gap-1 bg-bg px-[18px] py-4">
                                 <dt class="text-[11px] font-bold uppercase tracking-[.06em] text-muted">{{ info.label }}</dt>
-                                <dd class="m-0 font-semibold">{{ info.value }}</dd>
+                                <dd class="m-0 font-semibold">{{ tr(info.value) }}</dd>
                             </div>
                         </dl>
 
                         <div class="flex flex-wrap gap-x-14 gap-y-8">
                             <div class="flex flex-[2_1_420px] flex-col gap-2">
-                                <h3 class="modal-title">Ce que j'ai réalisé</h3>
+                                <h3 class="modal-title">{{ t('modal.done') }}</h3>
                                 <ol class="m-0 list-none p-0">
-                                    <li v-for="(bullet, i) in project.bullets" :key="bullet" class="flex gap-5 border-t border-line py-3.5">
+                                    <li v-for="(bullet, i) in tr(project.bullets)" :key="bullet" class="flex gap-5 border-t border-line py-3.5">
                                         <span class="flex-[0_0_28px] text-[13px] font-extrabold text-accent">{{ pad(i + 1) }}</span>
                                         <span class="text-muted">{{ bullet }}</span>
                                     </li>
                                 </ol>
                             </div>
                             <div class="flex flex-[1_1_240px] flex-col gap-3.5">
-                                <h3 class="modal-title">Technologies</h3>
+                                <h3 class="modal-title">{{ t('modal.tech') }}</h3>
                                 <div class="flex flex-wrap gap-1.5 text-[13px]">
-                                    <span v-for="tag in project.tags" :key="tag" class="bg-chip px-2.5 py-1.5">{{ tag }}</span>
+                                    <span v-for="(tag, j) in project.tags" :key="j" class="bg-chip px-2.5 py-1.5">{{ tr(tag) }}</span>
                                 </div>
                                 <a
                                     v-if="project.storeUrl"
@@ -96,7 +96,7 @@
                                     rel="noopener noreferrer"
                                     class="mt-2 inline-flex min-h-12 items-center justify-between gap-3 bg-ink px-[18px] text-[13px] font-bold uppercase tracking-[.05em] text-bg hover:text-bg"
                                 >
-                                    Voir sur Google Play
+                                    {{ t('modal.store') }}
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" /></svg>
                                 </a>
                             </div>
@@ -112,19 +112,21 @@
 import { computed, ref, watch, nextTick } from 'vue';
 import { projects } from '../data/portfolio';
 import { useDialog } from '../Composables/useDialog';
+import { useI18n } from '../Composables/useI18n';
 
 const props = defineProps({
     projectId: { type: String, default: null },
 });
 const emit = defineEmits(['close', 'navigate']);
 
+const { t, tr } = useI18n();
 const closeButton = ref(null);
 const index = computed(() => projects.findIndex((p) => p.id === props.projectId));
 const project = computed(() => projects[index.value] ?? null);
 const infos = computed(() => [
-    { label: 'Mon rôle', value: project.value.role },
-    { label: 'Type', value: project.value.type },
-    { label: 'Statut', value: project.value.status },
+    { label: t('modal.role'), value: project.value.role },
+    { label: t('modal.type'), value: project.value.type },
+    { label: t('modal.status'), value: project.value.status },
 ]);
 
 const pad = (n) => String(n).padStart(2, '0');

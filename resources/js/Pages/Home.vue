@@ -21,7 +21,7 @@
             <button
                 v-show="scrolled"
                 type="button"
-                aria-label="Ouvrir le menu"
+                :aria-label="t('nav.openMenu')"
                 class="fixed right-4 top-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-ink text-bg shadow-lg"
                 @click="menuOpen = true"
             >
@@ -47,6 +47,9 @@ import AppFooter from '../Components/AppFooter.vue';
 import FullscreenMenu from '../Components/FullscreenMenu.vue';
 import ProjectModal from '../Components/ProjectModal.vue';
 import { useScrollAnimations } from '../Composables/useScrollAnimations';
+import { useI18n } from '../Composables/useI18n';
+
+const { t } = useI18n();
 
 const menuOpen = ref(false);
 const projectId = ref(null);

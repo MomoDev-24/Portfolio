@@ -3,16 +3,13 @@
         <div class="mx-auto flex max-w-page flex-col gap-12 px-6 py-[110px]">
             <div class="flex flex-wrap items-end justify-between gap-6">
                 <div class="flex flex-col gap-5">
-                    <span class="lbl">Réalisations</span>
+                    <span class="lbl">{{ t('projects.label') }}</span>
                     <h2 class="disp text-[clamp(42px,6vw,84px)]">
-                        <span data-reveal="0" class="block">Des apps</span>
-                        <span data-reveal="1" class="block text-grey">en production</span>
+                        <span data-reveal="0" class="block">{{ t('projects.title1') }}</span>
+                        <span data-reveal="1" class="block text-grey">{{ t('projects.title2') }}</span>
                     </h2>
                 </div>
-                <p class="m-0 max-w-[340px] text-sm text-muted">
-                    Billetterie, fintech, santé, immobilier, e-commerce, mobilité : une sélection de produits que j'ai
-                    développés de bout en bout côté mobile.
-                </p>
+                <p class="m-0 max-w-[340px] text-sm text-muted">{{ t('projects.intro') }}</p>
             </div>
 
             <div class="grid grid-cols-[repeat(auto-fit,minmax(min(340px,100%),1fr))] gap-x-6 gap-y-7">
@@ -30,26 +27,26 @@
                             <img
                                 v-if="project.image"
                                 :src="project.image"
-                                :alt="project.alt"
+                                :alt="tr(project.alt)"
                                 class="block max-h-full max-w-full object-contain"
                                 loading="lazy"
                             >
-                            <span v-else class="text-[13px] text-muted">{{ project.placeholder }}</span>
+                            <span v-else class="text-[13px] text-muted">{{ tr(project.placeholder) }}</span>
                         </div>
                     </div>
                     <div class="flex justify-between px-1 pt-0.5 text-xs font-bold uppercase">
-                        <span><span class="text-accent">●</span> {{ project.name }}</span>
-                        <span class="text-muted">/{{ project.cat }}</span>
+                        <span><span class="text-accent">●</span> {{ tr(project.name) }}</span>
+                        <span class="text-muted">/{{ tr(project.cat) }}</span>
                     </div>
-                    <p class="m-0 px-1 text-sm text-muted">{{ project.summary }}</p>
+                    <p class="m-0 px-1 text-sm text-muted">{{ tr(project.summary) }}</p>
                     <div class="flex flex-wrap gap-1.5 px-1 pb-1 text-[11px]">
-                        <span v-for="tag in project.cardTags" :key="tag" class="bg-chip px-2 py-1">{{ tag }}</span>
+                        <span v-for="(tag, j) in project.cardTags" :key="j" class="bg-chip px-2 py-1">{{ tr(tag) }}</span>
                     </div>
                 </a>
             </div>
 
             <div class="mt-6 flex flex-col">
-                <h3 class="mb-3 text-xs font-bold uppercase tracking-[.06em] text-muted">Autres projets</h3>
+                <h3 class="mb-3 text-xs font-bold uppercase tracking-[.06em] text-muted">{{ t('projects.others') }}</h3>
                 <a
                     v-for="project in otherProjects"
                     :id="project.id"
@@ -60,10 +57,10 @@
                     @click.prevent="$emit('open', project.id)"
                 >
                     <span class="flex-[0_0_280px] font-display text-[22px] font-extrabold uppercase transition-colors duration-300 group-hover:text-accent">
-                        {{ project.name }}
+                        {{ tr(project.name) }}
                     </span>
-                    <span class="flex-[1_1_360px] text-sm text-muted">{{ project.summary }}</span>
-                    <span class="text-xs font-semibold uppercase">/{{ project.listLabel }} ↗</span>
+                    <span class="flex-[1_1_360px] text-sm text-muted">{{ tr(project.summary) }}</span>
+                    <span class="text-xs font-semibold uppercase">/{{ tr(project.listLabel) }} ↗</span>
                 </a>
             </div>
         </div>
@@ -72,6 +69,9 @@
 
 <script setup>
 import { featuredProjects, otherProjects } from '../data/portfolio';
+import { useI18n } from '../Composables/useI18n';
 
 defineEmits(['open']);
+
+const { t, tr } = useI18n();
 </script>

@@ -1,7 +1,7 @@
 <template>
     <button
         type="button"
-        :aria-label="isDark ? 'Passer au thème clair' : 'Passer au thème sombre'"
+        :aria-label="isDark ? t('theme.toLight') : t('theme.toDark')"
         :aria-pressed="isDark"
         class="inline-flex h-11 w-11 items-center justify-center rounded border transition-colors"
         @click="toggleTheme"
@@ -18,6 +18,8 @@
 
 <script setup>
 import { useTheme } from '../Composables/useTheme';
+import { useI18n } from '../Composables/useI18n';
 
 const { isDark, toggleTheme } = useTheme();
+const { t } = useI18n();
 </script>

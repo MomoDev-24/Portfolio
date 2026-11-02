@@ -10,7 +10,7 @@
                 v-if="open"
                 role="dialog"
                 aria-modal="true"
-                aria-label="Menu"
+                :aria-label="t('nav.menu')"
                 class="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-[#0D0D0D] text-[#F3F2EF]"
             >
                 <div class="mx-auto flex w-full max-w-page items-center justify-between px-6 py-2">
@@ -18,7 +18,7 @@
                     <button
                         ref="closeButton"
                         type="button"
-                        aria-label="Fermer le menu"
+                        :aria-label="t('nav.closeMenu')"
                         class="inline-flex h-12 w-12 items-center justify-center"
                         @click="$emit('close')"
                     >
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="mx-auto flex w-full max-w-page flex-1 flex-wrap gap-12 px-6 pb-12 pt-8">
-                    <nav aria-label="Menu" class="flex flex-[2_1_480px] flex-col">
+                    <nav :aria-label="t('nav.menu')" class="flex flex-[2_1_480px] flex-col">
                         <a
                             v-for="(link, i) in menuLinks"
                             :key="link.href"
@@ -36,14 +36,14 @@
                             :style="{ animationDelay: `${0.08 * (i + 1)}s` }"
                             @click.prevent="navigate(link.href)"
                         >
-                            <span class="disp text-[clamp(44px,7vw,92px)]" :class="{ 'text-[#FF6A3D]': link.href === '#contact' }">{{ link.label }}</span>
+                            <span class="disp text-[clamp(44px,7vw,92px)]" :class="{ 'text-[#FF6A3D]': link.href === '#contact' }">{{ t(link.key) }}</span>
                             <span class="text-[32px] font-light" aria-hidden="true">+</span>
                         </a>
                     </nav>
                     <div class="flex flex-[1_1_260px] flex-col justify-end gap-7 text-[15px]">
-                        <div><div class="text-[13px] text-[#9A9A95]">Téléphone</div><div class="font-semibold">{{ profile.phone }}</div></div>
-                        <div><div class="text-[13px] text-[#9A9A95]">Email</div><a :href="`mailto:${profile.email}`" class="font-semibold">{{ profile.email }}</a></div>
-                        <div><div class="text-[13px] text-[#9A9A95]">Basé à</div><div class="font-semibold">{{ profile.location }} — missions à distance</div></div>
+                        <div><div class="text-[13px] text-[#9A9A95]">{{ t('nav.phone') }}</div><div class="font-semibold">{{ profile.phone }}</div></div>
+                        <div><div class="text-[13px] text-[#9A9A95]">{{ t('nav.email') }}</div><a :href="`mailto:${profile.email}`" class="font-semibold">{{ profile.email }}</a></div>
+                        <div><div class="text-[13px] text-[#9A9A95]">{{ t('nav.basedIn') }}</div><div class="font-semibold">{{ tr(profile.location) }} — {{ t('nav.remote') }}</div></div>
                     </div>
                 </div>
             </div>
@@ -57,10 +57,12 @@ import AppLogo from './AppLogo.vue';
 import { menuLinks } from '../data/navigation';
 import { profile } from '../data/portfolio';
 import { useDialog } from '../Composables/useDialog';
+import { useI18n } from '../Composables/useI18n';
 
 const props = defineProps({ open: Boolean });
 const emit = defineEmits(['close']);
 
+const { t, tr } = useI18n();
 const closeButton = ref(null);
 
 useDialog(() => props.open, () => emit('close'));
