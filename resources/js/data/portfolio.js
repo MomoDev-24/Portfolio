@@ -221,9 +221,22 @@ export const projects = [
         },
         cardTags: ['Flutter', { fr: 'Biométrie', en: 'Biometrics' }, 'KYC'],
         tags: ['Flutter', 'KYC', { fr: 'Biométrie', en: 'Biometrics' }, 'Notifications', { fr: 'Cache local', en: 'Local cache' }, REST_API],
-        bg: 'bg-ph2', image: null,
-        placeholder: { fr: '[Captures ISBAQ]', en: '[ISBAQ screenshots]' },
-        shots: [],
+        bg: 'bg-ph2', image: projectImg('isbaq'),
+        alt: {
+            fr: "Maquettes d'ISBAQ : cartes, accueil avec le solde et recharge depuis Mobile Money",
+            en: 'ISBAQ mockups: cards, home with balance and top-up from Mobile Money',
+        },
+        shots: shots('isbaq', [
+            ['3', { fr: 'Bienvenue', en: 'Welcome' }],
+            ['30', { fr: 'Accueil', en: 'Home' }],
+            ['33', { fr: 'Analyses', en: 'Insights' }],
+            ['15', { fr: "Vérification d'identité", en: 'Identity verification' }],
+            ['61', { fr: 'Carte virtuelle', en: 'Virtual card' }],
+            ['69', { fr: 'Carte physique', en: 'Physical card' }],
+            ['42', { fr: 'Recharge', en: 'Top-up' }],
+            ['58', { fr: 'Paiement par QR', en: 'QR payment' }],
+            ['89', { fr: 'Profil', en: 'Profile' }],
+        ]),
     },
     {
         id: 'lokaplux', name: 'Lokaplux', featured: true,
@@ -548,4 +561,4 @@ export const projects = [
 
 export const featuredProjects = projects.filter((p) => p.featured);
 export const otherProjects = projects.filter((p) => !p.featured);
-export const heroProject = projects.find((p) => p.id === 'atokpa');
+export const heroProject = projects.find((p) => p.id === 'isbaq');
